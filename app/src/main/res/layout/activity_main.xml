@@ -6,13 +6,158 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <EditText
+        android:id="@+id/billEditText"
+        android:layout_width="291dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="60dp"
+        android:text="Bill Total"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
+        android:id="@+id/10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="60dp"
+        android:text="10%"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/15Percent"
+        app:layout_constraintHorizontal_bias="0.58"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billEditText" />
+
+    <TextView
+        android:id="@+id/15Percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="60dp"
+        android:text="15%"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/20Percent"
+        app:layout_constraintTop_toBottomOf="@+id/billEditText" />
+
+    <TextView
+        android:id="@+id/20Percent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="60dp"
+        android:text="20%"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/billEditText" />
+
+    <TextView
+        android:id="@+id/Tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Tip:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/10" />
+
+    <EditText
+        android:id="@+id/tip10EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/tip15EditText"
+        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintStart_toEndOf="@+id/Tip"
+        app:layout_constraintTop_toBottomOf="@+id/10" />
+
+    <EditText
+        android:id="@+id/tip15EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="24dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/tip20EditText"
+        app:layout_constraintTop_toBottomOf="@+id/15Percent" />
+
+    <EditText
+        android:id="@+id/tip20EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="36dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/20Percent" />
+
+    <TextView
+        android:id="@+id/Total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Total:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/total10EditText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/Tip"
+        app:layout_constraintTop_toBottomOf="@+id/Tip" />
+
+    <EditText
+        android:id="@+id/total15EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/total20EditText"
+        app:layout_constraintTop_toBottomOf="@+id/tip15EditText" />
+
+    <EditText
+        android:id="@+id/total20EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="4dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tip20EditText"
+        app:layout_constraintTop_toBottomOf="@+id/tip20EditText" />
+
+    <EditText
+        android:id="@+id/total10EditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/total15EditText"
+        app:layout_constraintTop_toBottomOf="@+id/tip10EditText" />
+
+    <SeekBar
+        android:id="@+id/CustomSeekBar"
+        android:layout_width="218dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="60dp"
+        android:indeterminate="false"
+        android:max="100"
+        android:progressTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/total15EditText" />
+
+    <TextView
+        android:id="@+id/Custom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Custom:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/CustomSeekBar"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Total" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

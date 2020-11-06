@@ -145,10 +145,10 @@
 
     <SeekBar
         android:id="@+id/customSeekBar"
-        android:layout_width="218dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="60dp"
+        android:layout_width="186dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="96dp"
         android:indeterminate="false"
         android:max="100"
         android:progress="12"
@@ -169,11 +169,11 @@
         app:layout_constraintTop_toBottomOf="@+id/Total" />
 
     <TextView
-        android:id="@+id/customTipTextView"
+        android:id="@+id/TextViewTipCustom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="44dp"
         android:text="Tip:"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/Custom"
@@ -183,7 +183,7 @@
         android:id="@+id/customTotalTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:layout_marginEnd="12dp"
         android:text="Total:"
         android:textSize="24sp"
@@ -194,13 +194,13 @@
         android:id="@+id/tipCustomEditText"
         android:layout_width="65dp"
         android:layout_height="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:inputType="number"
         android:textSize="24sp"
         app:layout_constraintEnd_toStartOf="@+id/customTotalTextView"
-        app:layout_constraintHorizontal_bias="0.277"
-        app:layout_constraintStart_toEndOf="@+id/customTipTextView"
+        app:layout_constraintHorizontal_bias="0.215"
+        app:layout_constraintStart_toEndOf="@+id/TextViewTipCustom"
         app:layout_constraintTop_toBottomOf="@+id/customSeekBar" />
 
     <EditText
@@ -208,11 +208,22 @@
         android:layout_width="92dp"
         android:layout_height="29dp"
         android:layout_marginTop="48dp"
-        android:layout_marginEnd="12dp"
         android:ems="10"
         android:inputType="number"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="@+id/customSeekBar"
+        app:layout_constraintEnd_toEndOf="@+id/customTipTextView"
         app:layout_constraintTop_toBottomOf="@+id/customSeekBar" />
+
+    <TextView
+        android:id="@+id/customTipTextView"
+        android:layout_width="54dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="80dp"
+        android:text="tip:"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.414"
+        app:layout_constraintStart_toEndOf="@+id/customSeekBar"
+        app:layout_constraintTop_toBottomOf="@+id/total20EditText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

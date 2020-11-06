@@ -3,6 +3,7 @@ package com.example.pages79_90;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.TextWatcher;
 import android.widget.EditText;
 import android.widget.SeekBar;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         tip20EditText=findViewById(R.id.tip20EditText);
         total20EditText=findViewById(R.id.total20EditText);
         //יצירת רפרנס לטיפ מותאם אישית
-        customTipTextView=findViewById(R.id.customTipTextView);
+        customTipTextView=findViewById(R.id.TextViewTipCustom);
         tipCustomEditText=findViewById(R.id.tipCustomEditText);
         totalCustomEditText=findViewById(R.id.totalCustomEditText);
         //יצירת רפרנס וקביעת מטפל אירוע שינוי תיבת טקסט
@@ -47,21 +48,69 @@ public class MainActivity extends AppCompatActivity {
         customSeekBar.setOnSeekBarChangeListener(customSeekBarListener);
     }// end OnCreate
 
-    private void updateStandard(){
+    private void updateStandard() {
         //calculate 10% tip
-        double tenPercentTip=currentBillTotal*0.1;
-        double tenPercentTotal=currentBillTotal+tenPercentTip;
+        double tenPercentTip = currentBillTotal * 0.1;
+        double tenPercentTotal = currentBillTotal + tenPercentTip;
         //display values
-        tip10EditText.setText(String.format("%0.02f",tenPercentTip));
-        total10EditText.setText((String.format("0.02%",tenPercentTotal)));
+        tip10EditText.setText(String.format("%0.02f", tenPercentTip));
+        total10EditText.setText((String.format("0.02%", tenPercentTotal)));
 
         //calculate 15% tip
-        double fifteenPercentTip=currentBillTotal*0.15;
-        double fifteenPercentTotal=currentBillTotal+fifteenPercentTip;
+        double fifteenPercentTip = currentBillTotal * 0.15;
+        double fifteenPercentTotal = currentBillTotal + fifteenPercentTip;
         //display values
-        tip15EditText.setText(String.format("%0.02f",fifteenPercentTip));
-        total15EditText.setText((String.format("0.02%",fifteenPercentTotal)));
-    }
+        tip15EditText.setText(String.format("%0.02f", fifteenPercentTip));
+        total15EditText.setText((String.format("0.02%", fifteenPercentTotal)));
+
+        //calculate 20% tip
+        double twentyPercentTip = currentBillTotal * 0.2;
+        double twentyPercentTotal = currentBillTotal + twentyPercentTip;
+        //display values
+        tip20EditText.setText(String.format("%0.02f", twentyPercentTip));
+        total20EditText.setText((String.format("%0.02f", twentyPercentTotal)));
+    }//end updateStandard
+
+    //updates the custom tip and total EditText
+    private void updatesCustom(){
+        //position of the SeekBar
+        customTipTextView.setText(currentCustomPercent+"%");
+
+        //calculate the custom tip amount
+        double customTipAmount=currentBillTotal*currentCustomPercent*0.01;
+        //calculate total bill+custom tip
+        double customTotalAmount=currentBillTotal+customTipAmount;
+        //display: tip and total bill amounts
+        tipCustomEditText.setText(String.format("%0.02f",customTipAmount));
+        totalCustomEditText.setText(String.format("%0.02f",customTotalAmount));
+    }//end custom amount
+
+    //הגדרת מאזין לאירוע קליטת חיוב
+    //TextWatcher listener
+    private TextWatcher BillEditTextWatcher=new TextWatcher() {
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            try {
+                currentBillTotal=Double.parseDouble(s.toString());
+            }//end try
+            catch (NumberFormatException e)
+            {
+                currentBillTotal=0.0;//default if an exception occurs
+            }
+            //עדכון טיפ רגיל ומותאם אישית
+            updateStandard();
+            updatesCustom();
+        }
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+
+        }
+    };
     private SeekBar.OnSeekBarChangeListener customSeekBarListener;
-    private TextWatcher BillEditTextWatcher;
 }
+

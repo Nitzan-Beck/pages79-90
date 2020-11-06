@@ -105,12 +105,31 @@ public class MainActivity extends AppCompatActivity {
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
         }
-
         @Override
         public void afterTextChanged(Editable s) {
 
         }
     };
-    private SeekBar.OnSeekBarChangeListener customSeekBarListener;
+    //----------------------end TextWatcher listener
+
+    //When the user change the position of the SeekBar
+    private SeekBar.OnSeekBarChangeListener customSeekBarListener=new SeekBar.OnSeekBarChangeListener() {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+          //sets currentCustomPercent to SeekBar position
+          currentCustomPercent=seekBar.getProgress();
+          //update EditText for custom tip and total
+            updatesCustom();
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    };
 }
 

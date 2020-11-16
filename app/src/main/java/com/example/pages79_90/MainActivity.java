@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         tip20EditText=findViewById(R.id.tip20EditText);
         total20EditText=findViewById(R.id.total20EditText);
         //יצירת רפרנס לטיפ מותאם אישית
-        customTipTextView=findViewById(R.id.TextViewTipCustom);
+        customTipTextView=findViewById(R.id.customTipTextView);
         tipCustomEditText=findViewById(R.id.tipCustomEditText);
         totalCustomEditText=findViewById(R.id.totalCustomEditText);
         //יצירת רפרנס וקביעת מטפל אירוע שינוי תיבת טקסט
@@ -81,8 +81,8 @@ public class MainActivity extends AppCompatActivity {
         //calculate total bill+custom tip
         double customTotalAmount=currentBillTotal+customTipAmount;
         //display: tip and total bill amounts
-        tipCustomEditText.setText(String.format("%0.02f",customTipAmount));
-        totalCustomEditText.setText(String.format("%0.02f",customTotalAmount));
+        tipCustomEditText.setText(String.format("%.02f",customTipAmount));
+        totalCustomEditText.setText(String.format("%.02f",customTotalAmount));
     }//end custom amount
 
     //הגדרת מאזין לאירוע קליטת חיוב
